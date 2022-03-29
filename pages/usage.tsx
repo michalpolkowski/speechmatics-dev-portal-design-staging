@@ -168,10 +168,10 @@ export default observer(function Usage() {
           </div>
         </div>
 
-        <div className='flex flex-row justify-between gap-8 mt-6'>
+        <div className='flex flex-row items-center justify-between gap-8 mt-6'>
           <p>Showing <span className='font-bold'>2 of 2</span> periods</p>
           <div className='pagination'>
-            <ul className='flex flex-row gap-4'>
+            <ul>
               <li>1</li>
               <li>2</li>
               <li className='pagination__selected'>3</li>

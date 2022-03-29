@@ -102,7 +102,7 @@ const GenerateTokenCompo = observer(() => {
         <div className='toast_notification toast_notification__standard'>
           <div className='w-6 h-6 items-center justify-center shrink-0'>
             <Image
-              src="/assets/icon-test.svg"
+              src="/assets/icon-general.svg"
               alt="Intro Icon"
               width={24}
               height={24}
@@ -114,7 +114,7 @@ const GenerateTokenCompo = observer(() => {
         <div className='toast_notification toast_notification__success'>
           <div className='w-6 h-6 items-center justify-center shrink-0'>
             <Image
-              src="/assets/icon-test.svg"
+              src="/assets/icon-success.svg"
               alt="Intro Icon"
               width={24}
               height={24}
@@ -126,7 +126,7 @@ const GenerateTokenCompo = observer(() => {
         <div className='toast_notification toast_notification__medium'>
           <div className='w-6 h-6 items-center justify-center shrink-0'>
             <Image
-              src="/assets/icon-test.svg"
+              src="/assets/icon-medium-alert.svg"
               alt="Intro Icon"
               width={24}
               height={24}
@@ -138,7 +138,7 @@ const GenerateTokenCompo = observer(() => {
         <div className='toast_notification toast_notification__warning'>
           <div className='w-6 h-6 items-center justify-center shrink-0'>
             <Image
-              src="/assets/icon-test.svg"
+              src="/assets/icon-warning.svg"
               alt="Intro Icon"
               width={24}
               height={24}
@@ -296,22 +296,50 @@ const PreviousTokens = observer(() => {
           <div className='data_row'>
             <div className='w-1/3'>Test Key</div>
             <div className='flex-1'>21/12/2022 - 16:4spm</div>
-            <div className='shrink-0'>x</div>
+            <div className='shrink-0 flex items-center'>
+              <Image
+                src="/assets/icon-delete.svg"
+                alt="Speechmatics"
+                width={20}
+                height={20}
+              />
+            </div>
           </div>
           <div className='data_row'>
             <div className='w-1/3'>Test Key</div>
             <div className='flex-1'>21/12/2022 - 16:4spm</div>
-            <div className='shrink-0'>x</div>
+            <div className='shrink-0 flex items-center'>
+              <Image
+                src="/assets/icon-delete.svg"
+                alt="Speechmatics"
+                width={20}
+                height={20}
+              />
+            </div>
           </div>
           <div className='data_row'>
             <div className='w-1/3'>Test Key</div>
             <div className='flex-1'>21/12/2022 - 16:4spm</div>
-            <div className='shrink-0'>x</div>
+            <div className='shrink-0 flex items-center'>
+              <Image
+                src="/assets/icon-delete.svg"
+                alt="Speechmatics"
+                width={20}
+                height={20}
+              />
+            </div>
           </div>
           <div className='data_row'>
             <div className='w-1/3'>Test Key</div>
             <div className='flex-1'>21/12/2022 - 16:4spm</div>
-            <div className='shrink-0'>x</div>
+            <div className='shrink-0 flex items-center'>
+              <Image
+                src="/assets/icon-delete.svg"
+                alt="Speechmatics"
+                width={20}
+                height={20}
+              />
+            </div>
           </div>
         </div>
 

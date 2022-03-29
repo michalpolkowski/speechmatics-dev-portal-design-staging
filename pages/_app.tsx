@@ -71,7 +71,6 @@ export default function MyApp({ Component, pageProps }) {
                 <span className='profile__arrow'>
                   <Image
                     src="/assets/icon-drop-arrow.svg"
-                    className='speechmatics_logo__wording'
                     alt="Speechmatics"
                     width={16}
                     height={12}
@@ -80,23 +79,21 @@ export default function MyApp({ Component, pageProps }) {
                 <div className='profile__dropdown absolute bg-speech-navy w-full'>
                   <ul>
                     <li><a href="#">
-                      <span className='icon bg-white h-5 w-5'>
+                      <span className='icon h-6 w-6'>
                         <Image
-                          src="/assets/icon-drop-arrow.svg"
-                          className='speechmatics_logo__wording'
+                          src="/assets/icon-profile.svg"
                           alt="Speechmatics"
-                          width={20}
-                          height={20}
+                          width={24}
+                          height={24}
                         />
                       </span> Profile</a></li>
                     <li><a href="#">
-                      <span className='icon bg-white h-5 w-5'>
+                      <span className='icon h-6 w-6'>
                         <Image
-                          src="/assets/icon-drop-arrow.svg"
-                          className='speechmatics_logo__wording'
+                          src="/assets/icon-logout.svg"
                           alt="Speechmatics"
-                          width={20}
-                          height={20}
+                          width={24}
+                          height={24}
                         />
                       </span> Logout</a></li>
                   </ul>
