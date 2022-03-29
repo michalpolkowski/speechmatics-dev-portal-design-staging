@@ -1,8 +1,4 @@
-import '../styles/reset.css';
-import '../styles/main.css';
-import '../styles/landing.css';
-import '../styles/login.css';
-import '../styles/dashboard.css';
+import '../styles/global.scss';
 import { useRouter } from 'next/router';
 import { MsalProvider } from '@azure/msal-react';
 import { CustomNavigationClient } from '../utils/navigation-client';
@@ -12,7 +8,10 @@ import { msalConfig } from '../utils/auth-config';
 import theme from '../static_data/theme';
 import AccountContext, { accountStore, tokenStore } from '../utils/account-store-context';
 import Head from 'next/head';
-import Image from 'next/image'
+import Image from 'next/image';
+import HeaderStyles from '../styles/components/header.module.scss';
+
+
 
 
 export const msalInstance = new PublicClientApplication(msalConfig);
@@ -43,19 +42,63 @@ export default function MyApp({ Component, pageProps }) {
       <ChakraProvider resetCSS={true} theme={theme}>
         <MsalProvider instance={msalInstance}>
           <div className="all_container">
-            <div className='header'>
-              <Image
-                src="/assets/speechmatics-logo.svg"
-                alt="Speechmatics Logo"
-                width={208}
-                height={20}
-              />
+            <div className={HeaderStyles.header}>
+              <div className='speechmatics_logo'>
+                <Image
+                  src="/assets/speech-logo-symbol.svg"
+                  alt="Speechmatics Symbol"
+                  className='speechmatics_logo__symbol'
+                  width={64}
+                  height={16}
+                />
+                <div className='hidden md:flex items-center'>
+                  <Image
+                    src="/assets/speech-logo-wording.svg"
+                    className='speechmatics_logo__wording'
+                    alt="Speechmatics"
+                    width={135}
+                    height={20}
+                  />
+                </div>
+              </div>
               <div className='profile'>
-                michaelalmond@live.co.uk <span className='arrow'>></span>
-                <div className='profile_dropdown absolute bg-speech-navy w-full'>
+                <span className='profile__name hidden md:flex'>
+                  michaelalmond@live.co.uk
+                </span>
+                <span className='profile__name md:hidden'>
+                  Michael Almond
+                </span>
+                <span className='profile__arrow'>
+                  <Image
+                    src="/assets/icon-drop-arrow.svg"
+                    className='speechmatics_logo__wording'
+                    alt="Speechmatics"
+                    width={16}
+                    height={12}
+                  />
+                </span>
+                <div className='profile__dropdown absolute bg-speech-navy w-full'>
                   <ul>
-                    <li>Profile</li>
-                    <li>Logout</li>
+                    <li><a href="#">
+                      <span className='icon bg-white h-5 w-5'>
+                        <Image
+                          src="/assets/icon-drop-arrow.svg"
+                          className='speechmatics_logo__wording'
+                          alt="Speechmatics"
+                          width={20}
+                          height={20}
+                        />
+                      </span> Profile</a></li>
+                    <li><a href="#">
+                      <span className='icon bg-white h-5 w-5'>
+                        <Image
+                          src="/assets/icon-drop-arrow.svg"
+                          className='speechmatics_logo__wording'
+                          alt="Speechmatics"
+                          width={20}
+                          height={20}
+                        />
+                      </span> Logout</a></li>
                   </ul>
                 </div>
               </div>

@@ -4,6 +4,8 @@ import { useState, useContext, useEffect, useCallback } from 'react';
 import { useMsal } from '@azure/msal-react';
 import { loginRequest } from '../utils/auth-config';
 
+import loginStyles from '../styles/login.module.scss'
+
 export default function Login() {
   const router = useRouter();
 
@@ -32,7 +34,7 @@ export default function Login() {
     } else if (inProgress === 'none' && accounts.length == 0) {
       return (
         <div className="login_form py-8">
-          <button className="next_button" onClick={loginHandler}>
+          <button className={loginStyles.next_button} onClick={loginHandler}>
             Log in / Sign up ➔
           </button>
         </div>

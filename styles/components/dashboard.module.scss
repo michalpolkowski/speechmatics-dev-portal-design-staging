@@ -1,89 +1,60 @@
-.header {
-  @apply bg-speech-navy text-white p-5 fixed z-50 inset-x-0 top-0 flex justify-between;
-}
-
-.header .profile_dropdown {
-  @apply opacity-0;
-}
-
-.header:hover .profile_dropdown {
-  @apply opacity-90;
-}
-
 .dashboard_container {
-  @apply h-full flex flex-col lg:flex-row bg-speech-light-blue; 
-}
-
-.dashboard_sidenav {
-  @apply items-center justify-start flex flex-col lg:fixed lg:h-full shrink-0 bg-white lg:w-[320px] lg:pt-[7vh] border-r border-speech-navy border-solid border-opacity-20;
+  @apply h-full flex flex-col lg:flex-row bg-speech-very-light-blue; 
 }
 
 .dashboard_content {
-  @apply flex flex-row flex-1 justify-center mt-8 pb-12 lg:mt-[7vh] lg:ml-[320px];
-}
-
-.dashboard_content_wrapper {
-  @apply flex flex-col flex-1 max-w-screen-lg mx-8 lg:mx-16;
-}
-
-.dashboard_content_wrapper h1 {
-  @apply font-bold text-speech-navy text-4xl mb-4 leading-tight;
-}
-
-.dashboard_content_wrapper h2 {
-  @apply font-normal text-speech-font text-xl mb-4;
-}
-
-.dashboard_content_wrapper .divide_line {
-  @apply h-px bg-speech-navy bg-opacity-20 mb-10;
-}
-
-.dashboard_side_bar {
-  display: flex;
-  flex-direction: column;
-  margin: 1em;
-  @apply flex flex-col m-4;
-}
-
-.dashboard_side_bar > * {
-  margin-bottom: 1em;
-}
-
-h1 {
-  @apply p-0 m-0;
-}
-
-.nav_menu {
-  @apply flex flex-row w-full items-stretch text-lg;
-}
-@screen lg {
-  .nav_menu {
-    @apply flex-col pl-16 mt-3 sticky;
+  @apply flex flex-row flex-1 justify-center mt-5 pb-12;
+  @screen md {
+    @apply mt-8;
+  }
+  @screen lg {
+    @apply lg:ml-[250px] mt-[7vh];
+  }
+  @screen xl {
+    @apply lg:ml-[320px];
   }
 }
 
-.menu_elem {;
-  @apply flex items-center text-speech-font mb-10 cursor-pointer bg-clip-border gap-x-3 transition;
+.dashboard_content_wrapper {
+
+  @apply flex flex-col flex-1 max-w-screen-lg mx-5; 
+  @screen md {
+    @apply mx-8;
+  }
+  @screen lg {
+    @apply mx-16;
+  }
+
 }
 
-.menu_elem.selected {
-  @apply font-bold text-speech-blue border-r border-r-4 border-solid border-speech-blue;
+
+.content_wrapper {
+  @apply bg-white border border-solid border-speech-navy border-opacity-20 shadow-lg p-8;
 }
 
-.menu_elem.selected svg path {
-    @apply fill-speech-blue;
+
+.card {
+
+  @apply bg-white p-4 shadow-md flex flex-col;
+
+  @screen md {
+    @apply p-6;
+  }
+
+  @screen lg {
+    @apply p-8;
+  }
+
 }
 
-.menu_elem > div:first-child {
-  @apply w-8;
+.card h3 {
+  @apply text-xl mb-3 font-semibold;
 }
-
-.menu_elem:hover {
-  @apply text-speech-navy;
+.card p {
+  @apply text-base mb-5 text-speech-font flex-1;
 }
-
-.menu_elem.selected:hover {
-  @apply text-speech-blue;
+.card a {
+  @apply text-base text-speech-blue;
 }
 
 .open_docs_button {
@@ -256,24 +227,3 @@ h1 {
   font-size: 18px;
 }
 
-.content_wrapper {
-  @apply bg-white border border-solid border-speech-navy border-opacity-20 shadow-lg p-8;
-}
-
-.learn_wrapper {
-  @apply grid grid-cols-3 gap-10;
-}
-
-.card {
-  @apply bg-white p-8 shadow-md flex flex-col;
-}
-
-.card h3 {
-  @apply text-xl mb-3 font-semibold;
-}
-.card p {
-  @apply text-base mb-5 text-speech-font flex-1;
-}
-.card a {
-  @apply text-base text-speech-blue;
-}

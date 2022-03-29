@@ -35,8 +35,153 @@ export default observer(function Usage() {
   return (
     <Dashboard>
       <h1>Usage</h1>
-      <h2>Usage for the period: {currentUsage?.billingRange}</h2>
-      <div className='divide_line'></div>
+      <p className='subtitle'>Usage for the period: {currentUsage?.billingRange}</p>
+      <div className='divide_line divide_line__top'></div>
+
+      <div className='content_wrapper mb-10'>
+        <h2>Usage Limits</h2>
+        <p>Hours of audio per month</p>
+
+        <div className='model_holder'>
+
+          <div className='model_compare model_standard'>
+            <div className='model_info padding'>
+              <div className='model_info_gap'>
+                <img src="/assets/model-balloon.svg" />
+                <div className='model_title'>
+                  <p>Standard Model</p>
+                  <h3>2 hours / month</h3>
+                </div>
+              </div>
+            </div>
+            <div className='model_description padding'>
+              <p>Speechmatics Standard Model provides high accuracy with reduced turnaround times.</p>
+            </div>
+          </div>
+
+          <div className='model_compare model_enhanced'>
+            <div className='model_info padding'>
+              <div className='model_info_gap'>
+                <img src="/assets/model-balloon.svg" />
+                <div className='model_title'>
+                  <p>Enhanced Model</p>
+                  <h3>2 hours / month</h3>
+                </div>
+              </div>
+            </div>
+            <div className='model_description padding'>
+              <p>Speechmatics Enhanced Model provides our very highest level of accuracy.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div className='cta_callout'>
+          <div className='icon'>
+            <img src="/assets/icon-limits.svg" />
+          </div>
+          <div className='cta_text'>
+            <h4>Increase usage limits</h4>
+            <p>Add Payment Card in order to increase these limits</p>
+          </div>
+          <a href='#' className='button button__extended button__white shrink-0'>Add a card</a>
+        </div>
+
+      </div >
+
+      <div className='content_wrapper mb-10'>
+        <div className='table_data data_billing '>
+          <div className='header_row'>
+            <div className='w-4/12'>Model</div>
+            <div className='w-3/12'>Hours Used</div>
+            <div className='w-2/12'>Total Cost</div>
+            <div className='w-3/12'>Payment Status</div>
+
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
+            <div className='w-3/12'>22.2 hours</div>
+            <div className='w-2/12'>$53.65</div>
+            <div className='w-3/12'>Due on 01 March 2022</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
+            <div className='w-3/12'>22.2 hours</div>
+            <div className='w-2/12'>$53.65</div>
+            <div className='w-3/12'>Due on 01 March 2022</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
+            <div className='w-3/12'>22.2 hours</div>
+            <div className='w-2/12'>$53.65</div>
+            <div className='w-3/12'>Due on 01 March 2022</div>
+          </div>
+
+        </div>
+
+        <div className='table_data data_usage_summary'>
+          <div className='header_row'>
+            <div className='w-3/12'>Model</div>
+            <div className='w-3/12'>Limit (hours / month)</div>
+            <div className='w-3/12'>Hours used</div>
+            <div className='w-3/12'>Requests made</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-3/12'>Standard Model</div>
+            <div className='w-3/12'>3.2 hours</div>
+            <div className='w-3/12'>3.3 hours</div>
+            <div className='w-3/12'>44</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-3/12'>Standard Model</div>
+            <div className='w-3/12'>3.2 hours</div>
+            <div className='w-3/12'>3.3 hours</div>
+            <div className='w-3/12'>44</div>
+          </div>
+        </div>
+
+        <div className='table_data data_usage_details '>
+          <div className='header_row'>
+            <div className='w-4/12'>Date</div>
+            <div className='w-4/12'>Hours used</div>
+            <div className='w-4/12'>Requests made</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>Standard Model</div>
+            <div className='w-4/12'>3.2 hours</div>
+            <div className='w-4/12'>44</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>Standard Model</div>
+            <div className='w-4/12'>3.2 hours</div>
+            <div className='w-4/12'>44</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>Standard Model</div>
+            <div className='w-4/12'>3.2 hours</div>
+            <div className='w-4/12'>44</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>Standard Model</div>
+            <div className='w-4/12'>3.2 hours</div>
+            <div className='w-4/12'>44</div>
+          </div>
+        </div>
+
+        <div className='flex flex-row justify-between gap-8 mt-6'>
+          <p>Showing <span className='font-bold'>2 of 2</span> periods</p>
+          <div className='pagination'>
+            <ul className='flex flex-row gap-4'>
+              <li>1</li>
+              <li>2</li>
+              <li className='pagination__selected'>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
 
       <div className='content_wrapper'>
         <Grid className='gap-8' templateColumns="repeat(4, 1fr)">

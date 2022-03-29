@@ -7,10 +7,10 @@ export default function Faq({ }) {
   return (
     <Dashboard>
       <h1>Resources</h1>
-      <h2>Explore our comprehensive API documentation</h2>
-      <div className='divide_line'></div>
+      <p className='subtitle'>Explore our comprehensive API documentation</p>
+      <div className='divide_line divide_line__top'></div>
 
-      <div className='learn_wrapper'>
+      <div className='cards_wrapper'>
         <div className='card'>
           <div className='w-8 h-8 items-center justify-center mb-3'>
             <Image
@@ -116,7 +116,7 @@ export default function Faq({ }) {
           </AccordionItem>
         ))}
         </Accordion> */}
-    </Dashboard>
+    </Dashboard >
   );
 }
 

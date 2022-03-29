@@ -19,6 +19,8 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react';
+import dashStyles from '../styles/components/dashboard.module.scss';
+import sidenavStyles from '../styles/components/sidenav.module.scss';
 
 export default observer(function Dashboard({ children }) {
   const router = useRouter();
@@ -90,7 +92,7 @@ export default observer(function Dashboard({ children }) {
   }
 
   return (
-    <div className="dashboard_container" onKeyDown={onKeyDown} tabIndex={0}>
+    <div className={dashStyles.dashboard_container} onKeyDown={onKeyDown} tabIndex={0}>
       <Modal isOpen={isModalOpen} onClose={onModalClose} closeOnOverlayClick={false}>
         <ModalOverlay />
         <ModalContent>
@@ -101,9 +103,8 @@ export default observer(function Dashboard({ children }) {
           <ModalFooter />
         </ModalContent>
       </Modal>
-      <div className="dashboard_sidenav">
-        <div className="hi_name hidden">Hi, {account.name || account.username}!</div>
-        <div className="nav_menu">
+      <div className={sidenavStyles.dashboard_sidenav}>
+        <div className={`${sidenavStyles.nav_menu}`}>
           {menuData.map((item) => (
             <MenuElem item={item} key={item.path} selected={router.asPath == item.path} />
           ))}
@@ -111,8 +112,8 @@ export default observer(function Dashboard({ children }) {
 
         {showTestTools && <TestApiBlock tokenPayload={tokenPayload} />}
       </div>
-      <div className="dashboard_content">
-        <div className="dashboard_content_wrapper">
+      <div className={`${dashStyles.dashboard_content}`}>
+        <div className={dashStyles.dashboard_content_wrapper}>
           {children}
         </div>
       </div>
@@ -123,7 +124,7 @@ export default observer(function Dashboard({ children }) {
 function MenuElem({ item, selected }) {
   return (
     <Link href={item.path}>
-      <div className={`menu_elem ${selected ? 'selected' : ''}`}>
+      <div className={`${sidenavStyles.menu_elem} ${selected ? sidenavStyles.selected : ''}`}>
         <div>{item.icon({})}</div>
         <div>{item.title}</div>
       </div>

@@ -1,9 +1,11 @@
 {
   "speech-blue": "#386DFB",
+  "speech-mid-blue": "#5398FC",
+  "speech-light-blue": "#BFD8FE",
   "speech-green": "#2B8279",
   "speech-navy": "#263243",
   "speech-font": "#5E6673",
-  "speech-light-blue": "#F9FBFD",
+  "speech-very-light-blue": "#f7f9ff",
   "speech-light-grey": "#F4F6F9",
   "speech-orange": "#E27919",
   "speech-red": "#D82C2C",
