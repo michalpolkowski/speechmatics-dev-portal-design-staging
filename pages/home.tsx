@@ -104,26 +104,6 @@ export default function Home({ }) {
         </div>
       </div>
 
-      <div className='card'>
-        <h2>Download Audio File</h2>
-        <p>Download our sample audio file into a folder, or use your own.</p>
-
-        <div className='divide_line my-4 md:my-6 lg:my-8 '></div>
-
-        <h2>Create an API key</h2>
-        <p>Download our <a href="#">sample audio file</a> into a folder, or use your own.</p>
-
-        <div className='divide_line my-4 md:my-6 lg:my-8 '></div>
-
-        <h2>Make an API request with code</h2>
-        <p>Copy the following curl command and replace the API key with your own.</p>
-        <p>Run the command to generate a transcript.</p>
-
-        <CodeSnippet>
-          curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
-        </CodeSnippet>
-
-      </div>
     </Dashboard >
   );
 }
