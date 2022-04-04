@@ -16,10 +16,15 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  TabList, 
+  TabPanels, 
+  TabPanel, 
+  Tab,
 } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 import { useCallback, useEffect, useState, useMemo, useRef, useContext } from 'react';
 import Dashboard from '../components/dashboard';
+import DashboardTabs from '../components/tabs/dashboard-tabs'
 import { IoTrashBinOutline, IoCopyOutline } from 'react-icons/io5';
 import accountContext, { ApiKey } from '../utils/account-store-context';
 import { callPostApiKey, callRemoveApiKey } from '../utils/call-api';
@@ -237,6 +242,28 @@ const GenerateTokenCompo = observer(() => {
             </Button>
           </>
         )}
+
+        {/* OS Instructions */}
+        <div>
+          <DashboardTabs>
+            <TabList>
+              <Tab>Windows</Tab>
+              <Tab>Linux</Tab>
+              <Tab>Mac</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>
+                <p>Windows</p>
+              </TabPanel>
+              <TabPanel>
+                <p>Linux</p>
+              </TabPanel>
+              <TabPanel>
+                <p>Mac</p>
+              </TabPanel>
+            </TabPanels>
+          </DashboardTabs>
+        </div>
       </div>
     </section>
   );

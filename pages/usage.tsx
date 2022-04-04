@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { CSSProperties, useContext, useEffect, useState } from 'react';
 import Dashboard from '../components/dashboard';
-import { Box, Grid, GridItem, Text, tokenToCSSVar } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Text, Tabs, TabList, TabPanels, TabPanel, Tab, tokenToCSSVar } from '@chakra-ui/react';
 import { callGetUsage } from '../utils/call-api';
 import accountContext, { accountStore } from '../utils/account-store-context';
 import { observer } from 'mobx-react-lite';
@@ -37,6 +37,7 @@ export default observer(function Usage() {
       <h1>Usage</h1>
       <p className='subtitle'>Usage for the period: {currentUsage?.billingRange}</p>
       <div className='divide_line divide_line__top'></div>
+
 
       <div className='content_wrapper mb-10'>
         <h2>Usage Limits</h2>
