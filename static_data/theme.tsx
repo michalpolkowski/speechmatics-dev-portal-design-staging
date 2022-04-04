@@ -38,6 +38,9 @@ const theme = extendTheme({
               borderTopColor: 'speech-blue',
             },
           },
+          tabpanel: {
+            padding: '0'
+          }
         },
       },
     },

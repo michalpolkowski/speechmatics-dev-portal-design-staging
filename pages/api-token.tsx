@@ -23,8 +23,11 @@ import {
 } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 import { useCallback, useEffect, useState, useMemo, useRef, useContext } from 'react';
+
 import Dashboard from '../components/dashboard';
 import DashboardTabs from '../components/tabs/dashboard-tabs'
+import CodeSnippet from '../components/code-snippet'
+
 import { IoTrashBinOutline, IoCopyOutline } from 'react-icons/io5';
 import accountContext, { ApiKey } from '../utils/account-store-context';
 import { callPostApiKey, callRemoveApiKey } from '../utils/call-api';
@@ -254,13 +257,19 @@ const GenerateTokenCompo = observer(() => {
             </TabList>
             <TabPanels>
               <TabPanel>
-                <div class="code_snippet"><div class="code_snippet__code">WINDOWS curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:</div><button class="button button__grey button__small">Copy</button></div>
+                <CodeSnippet>
+                  curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                </CodeSnippet>
               </TabPanel>
               <TabPanel>
-                <div class="code_snippet"><div class="code_snippet__code">LINUX curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:</div><button class="button button__grey button__small">Copy</button></div>
+                <CodeSnippet>
+                  curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                </CodeSnippet>
               </TabPanel>
               <TabPanel>
-                <div class="code_snippet"><div class="code_snippet__code">MAC curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:</div><button class="button button__grey button__small">Copy</button></div>
+                <CodeSnippet>
+                  curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                </CodeSnippet>
               </TabPanel>
             </TabPanels>
           </DashboardTabs>

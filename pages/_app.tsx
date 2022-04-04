@@ -10,7 +10,7 @@ import AccountContext, { accountStore, tokenStore } from '../utils/account-store
 import Head from 'next/head';
 import Image from 'next/image';
 import HeaderStyles from '../styles/components/header.module.scss';
-
+import dynamic from 'next/dynamic';
 
 
 
@@ -18,7 +18,15 @@ export const msalInstance = new PublicClientApplication(msalConfig);
 
 // console.log('msalInstance', msalConfig);
 
-// Account selection logic is app dependent. Adjust as needed for different use cases.
+
+
+// This default export is required in a new `pages/_app.js` file.
+export default function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const navigationClient = new CustomNavigationClient(router);
+  msalInstance.setNavigationClient(navigationClient);
+
+  // Account selection logic is app dependent. Adjust as needed for different use cases.
 const accounts = msalInstance.getAllAccounts();
 if (accounts.length > 0) {
   msalInstance.setActiveAccount(accounts[0]);
@@ -31,11 +39,7 @@ msalInstance.addEventCallback((event) => {
   }
 });
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  const navigationClient = new CustomNavigationClient(router);
-  msalInstance.setNavigationClient(navigationClient);
+  const HeaderProf = dynamic(() => import('../components/profile/header-profile'), { ssr: false });
 
   return (
     <AccountContext.Provider value={{ accountStore, tokenStore }}>
@@ -61,44 +65,7 @@ export default function MyApp({ Component, pageProps }) {
                   />
                 </div>
               </div>
-              <div className='profile'>
-                <span className='profile__name hidden md:flex'>
-                  michaelalmond@live.co.uk
-                </span>
-                <span className='profile__name md:hidden'>
-                  Michael Almond
-                </span>
-                <span className='profile__arrow'>
-                  <Image
-                    src="/assets/icon-drop-arrow.svg"
-                    alt="Speechmatics"
-                    width={16}
-                    height={12}
-                  />
-                </span>
-                <div className='profile__dropdown absolute bg-speech-navy w-full'>
-                  <ul>
-                    <li><a href="#">
-                      <span className='icon h-6 w-6'>
-                        <Image
-                          src="/assets/icon-profile.svg"
-                          alt="Speechmatics"
-                          width={24}
-                          height={24}
-                        />
-                      </span> Profile</a></li>
-                    <li><a href="#">
-                      <span className='icon h-6 w-6'>
-                        <Image
-                          src="/assets/icon-logout.svg"
-                          alt="Speechmatics"
-                          width={24}
-                          height={24}
-                        />
-                      </span> Logout</a></li>
-                  </ul>
-                </div>
-              </div>
+              <HeaderProf accounts={accounts} />
             </div>
             <div className="content">
               <Head>

@@ -578,19 +578,6 @@ body {
   }
 }
 
-.code_snippet {
-  @apply flex flex-col items-center justify-between bg-speech-navy max-w-full p-4 pl-6 mt-8 break-all;
-
-  &__code {
-    @apply flex flex-1 items-center overflow-hidden font-source tracking-wider text-white;
-  }
-
-
-  @screen lg {
-    @apply flex-row;
-  }
-}
-
 .payment_card {
   @apply flex justify-center flex-col mt-5;
 
