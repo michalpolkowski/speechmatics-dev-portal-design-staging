@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Dashboard from '../components/dashboard';
+import CodeSnippet from '../components/code-snippet'
 import Image from 'next/image';
 
 export default function Home({ }) {
@@ -114,12 +115,9 @@ export default function Home({ }) {
         <p>Copy the following curl command and replace the API key with your own.</p>
         <p>Run the command to generate a transcript.</p>
 
-        <div className='code_snippet'>
-          <div className='code_snippet__code'>
-            curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
-          </div>
-          <button className='button button__grey button__small'>Copy</button>
-        </div>
+        <CodeSnippet>
+          curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+        </CodeSnippet>
 
       </div>
 
