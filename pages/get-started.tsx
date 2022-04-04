@@ -3,7 +3,7 @@ import Dashboard from '../components/dashboard';
 import CodeSnippet from '../components/code-snippet'
 import Image from 'next/image';
 
-export default function GettingStarted({ }) {
+export default function GetStarted({ }) {
   return (
     <Dashboard>
       <h1>Get started</h1>
