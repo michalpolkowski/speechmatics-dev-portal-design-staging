@@ -360,7 +360,7 @@ body {
 
 .table_data {
 
-  @apply text-sm;
+  @apply border border-speech-navy border-opacity-20 mb-5 text-sm;
 
   @screen md {
     @apply text-base;
@@ -662,9 +662,7 @@ body {
   }
 }
 
-.table_data {
-  @apply border border-speech-navy border-opacity-20 mb-16;
-}
+
 
 .pagination {
   ul {

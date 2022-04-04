@@ -6,6 +6,7 @@ import { Box, Grid, GridItem, Text, Tabs, TabList, TabPanels, TabPanel, Tab, tok
 import { callGetUsage } from '../utils/call-api';
 import accountContext, { accountStore } from '../utils/account-store-context';
 import { observer } from 'mobx-react-lite';
+import Image from 'next/image'
 
 export default observer(function Usage() {
   const [usageJson, setUsageJson] = useState<any>({});
@@ -100,24 +101,6 @@ export default observer(function Usage() {
 
               </div >
 
-              <div className='content_wrapper mb-10'>
-
-
-
-                <div className='flex flex-row items-center justify-between gap-8 mt-6'>
-                  <p>Showing <span className='font-bold'>2 of 2</span> periods</p>
-                  <div className='pagination'>
-                    <ul>
-                      <li>1</li>
-                      <li>2</li>
-                      <li className='pagination__selected'>3</li>
-                      <li>4</li>
-                      <li>5</li>
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
             </TabPanel>
             {/* Summary */}
             <TabPanel>
@@ -198,6 +181,32 @@ export default observer(function Usage() {
                     <div className='w-4/12'>3.2 hours</div>
                     <div className='w-4/12'>44</div>
                   </div>
+                </div>
+
+
+                <div className='flex flex-row items-center justify-between gap-8 mt-6'>
+                  <p>Showing <span className='font-bold'>2 of 2</span> periods</p>
+                  <div className='pagination'>
+                    <ul>
+                      <li>1</li>
+                      <li>2</li>
+                      <li className='pagination__selected'>3</li>
+                      <li>4</li>
+                      <li>5</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className='toast_notification toast_notification__standard'>
+                  <div className='w-6 h-6 items-center justify-center shrink-0'>
+                    <Image
+                      src="/assets/icon-general.svg"
+                      alt="Intro Icon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <span>All usage is reported on a (UTC) calendar day basis and excludes the current day</span>
                 </div>
 
                 <Grid templateColumns="repeat(2, 1fr)" gap={5} marginTop="2em">
