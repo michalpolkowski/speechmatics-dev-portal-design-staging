@@ -44,6 +44,14 @@ const theme = extendTheme({
         },
       },
     },
+    Modal: {
+      modalcontent: {
+        padding: '100px',
+      },
+      variants: {
+        
+      }
+    }
   },
 });
 
