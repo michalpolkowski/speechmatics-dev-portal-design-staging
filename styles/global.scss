@@ -368,7 +368,7 @@ body {
 
   .data_row,
   .header_row {
-    @apply py-3 flex flex-row justify-between;
+    @apply py-3 flex flex-row justify-between space-x-4;
   }
 
   .data_row {

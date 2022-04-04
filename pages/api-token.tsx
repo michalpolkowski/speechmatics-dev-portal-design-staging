@@ -7,6 +7,7 @@ import {
   Spinner,
   Tooltip,
   VStack,
+  Skeleton,
   Text,
   useDisclosure,
   Modal,
@@ -363,8 +364,19 @@ const PreviousTokens = observer(() => {
           ))}
 
           {(typeof apiKeys === 'undefined' || !apiKeys || apiKeys?.length === 0) &&
-            <div className="p-4 w-full text-center flex items-center justify-center">
-              <Spinner className="mr-4" /> <Text>Loading API Keys...</Text>
+            <div className='data_row'>
+              <div className='w-1/3'>
+                <Skeleton height='20px' />
+              </div>
+              <div className="w-1/3">
+                <Skeleton height='20px' />
+              </div>
+              <div className='flex-1'>
+                <Skeleton width="100%" height='20px' />
+              </div>
+              <div className='w-1/10 shrink-0 ml-4 flex-1 flex justify-end'>
+                <Skeleton width="60px" height='20px' />
+              </div>
             </div>
           }
         </div>
