@@ -29,6 +29,7 @@ import { IoTrashBinOutline, IoCopyOutline } from 'react-icons/io5';
 import accountContext, { ApiKey } from '../utils/account-store-context';
 import { callPostApiKey, callRemoveApiKey } from '../utils/call-api';
 import Image from 'next/image';
+import tokenStyles from '../styles/api-token.module.scss'
 
 export default function GetAccessToken({ }) {
   const { accountStore } = useContext(accountContext);
@@ -244,7 +245,7 @@ const GenerateTokenCompo = observer(() => {
         )}
 
         {/* OS Instructions */}
-        <div>
+        <div className={tokenStyles.curl_commands}>
           <DashboardTabs>
             <TabList>
               <Tab>Windows</Tab>
