@@ -36,21 +36,25 @@ export default observer(function Subscriptions({ }) {
 
           <div className='payment_card payment_card__-not-disabled'>
 
-            <div className='payment_card__back'>
-              <div className='payment_card__stripe'></div>
-              <div className='payment_card__signature'></div>
-            </div>
+            <div className='payment_card__holder'>
 
-            <div className='payment_card__front'>
-              <img className='self-end block rounded' src="/assets/logo-visa.svg" />
-              <img className='self-start mt-1 block' src="/assets/card-chip.svg" />
-              <div className='payment_card__numbers'>
-                <div>XXXX</div>
-                <div>XXXX</div>
-                <div>XXXX</div>
-                <div className='last_four_digits'>6345</div>
+              <div className='payment_card__back'>
+                <div className='payment_card__stripe'></div>
+                <div className='payment_card__signature'></div>
               </div>
-              <p className='self-end text-white payment_card__expiry'><span className='uppercase opacity-50 mr-1'> Expiry date</span> 22/23</p>
+
+              <div className='payment_card__front'>
+                <img className='self-end block rounded' src="/assets/logo-visa.svg" />
+                <img className='self-start mt-1 block' src="/assets/card-chip.svg" />
+                <div className='payment_card__numbers'>
+                  <div>XXXX</div>
+                  <div>XXXX</div>
+                  <div>XXXX</div>
+                  <div className='last_four_digits'>6345</div>
+                </div>
+                <p className='self-end text-white payment_card__expiry'><span className='uppercase opacity-50 mr-1'> Expiry date</span> 22/23</p>
+              </div>
+
             </div>
 
           </div>

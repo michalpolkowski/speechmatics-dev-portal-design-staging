@@ -16,9 +16,9 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  TabList, 
-  TabPanels, 
-  TabPanel, 
+  TabList,
+  TabPanels,
+  TabPanel,
   Tab,
 } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
@@ -254,13 +254,13 @@ const GenerateTokenCompo = observer(() => {
             </TabList>
             <TabPanels>
               <TabPanel>
-                <p>Windows</p>
+                <div class="code_snippet"><div class="code_snippet__code">WINDOWS curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:</div><button class="button button__grey button__small">Copy</button></div>
               </TabPanel>
               <TabPanel>
-                <p>Linux</p>
+                <div class="code_snippet"><div class="code_snippet__code">LINUX curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:</div><button class="button button__grey button__small">Copy</button></div>
               </TabPanel>
               <TabPanel>
-                <p>Mac</p>
+                <div class="code_snippet"><div class="code_snippet__code">MAC curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:</div><button class="button button__grey button__small">Copy</button></div>
               </TabPanel>
             </TabPanels>
           </DashboardTabs>

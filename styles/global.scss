@@ -135,14 +135,18 @@ body {
 }
 
 .button {
-  @apply bg-white px-6 py-5 leading-none inline-block text-white cursor-pointer;
+  @apply bg-white px-6 py-5 leading-none inline-block text-white cursor-pointer transition;
 
   @screen md {
     @apply text-lg;
   }
 
   &__primary {
-    @apply bg-speech-blue;
+    @apply bg-speech-blue border-speech-blue border-2;
+
+    &:hover {
+      @apply bg-white text-speech-blue border border-speech-blue border-2;
+    }
   }
 
   &__primary-outline {
@@ -289,6 +293,12 @@ body {
 
 
 .card {
+
+  @apply transition duration-500;
+
+  &:hover {
+    @apply shadow-xl;
+  }
 
   &__featured {
 
@@ -495,6 +505,10 @@ body {
 
   .icon {
     @apply shrink-0;
+
+    @screen md {
+      @apply flex items-center justify-center;
+    }
   }
 
   .cta_text {
@@ -565,7 +579,7 @@ body {
 }
 
 .code_snippet {
-  @apply flex flex-col items-center justify-between bg-speech-navy max-w-full p-4 mt-8 break-all;
+  @apply flex flex-col items-center justify-between bg-speech-navy max-w-full p-4 pl-6 mt-8 break-all;
 
   &__code {
     @apply flex flex-1 items-center overflow-hidden font-source tracking-wider text-white;
@@ -578,19 +592,48 @@ body {
 }
 
 .payment_card {
-  @apply flex justify-end flex flex-col relative;
+  @apply flex justify-center flex-col mt-5;
+
+  @screen md {
+    @apply mt-0 justify-end;
+  }
+
+  &__holder {
+    @apply relative flex justify-end mx-auto;
+
+    @screen md {
+      @apply mr-0;
+    }
+  }
 
   &__front {
-    @apply bg-speech-blue bg-gradient-to-r from-blue-400 to-speech-blue p-6 bg-speech-blue flex flex-col self-end rounded-2xl h-52 w-80 relative z-10 mt-10 mb-6;
+    @apply bg-speech-blue bg-gradient-to-r from-blue-400 to-speech-blue p-4 bg-speech-blue flex flex-col self-end rounded-2xl h-44 w-64 relative z-10 mt-10 mb-6;
     box-shadow: -16px -16px 20px -10px rgba(0, 0, 0, 0.3);
+
+    @screen md {
+      @apply p-4;
+    }
+
+    @screen xl {
+      @apply h-52 w-80 p-6;
+    }
   }
 
   &__back {
-    @apply bg-speech-blue bg-gradient-to-r from-blue-500 to-speech-blue flex flex-col rounded-2xl h-52 w-80 absolute right-8 top-0;
+    @apply bg-speech-blue bg-gradient-to-r from-blue-500 to-speech-blue flex flex-col rounded-2xl h-44 w-64 absolute right-8 top-0;
+
+    @screen xl {
+      @apply h-52 w-80;
+    }
   }
 
   &__numbers {
-    @apply flex flex-row justify-between text-white tracking-widest text-lg my-2 mt-3;
+    @apply flex flex-row justify-between text-white tracking-widest text-base my-1 mt-2;
+
+    @screen xl {
+      @apply text-lg my-2 mt-3;
+      ;
+    }
   }
 
   &__stripe {
@@ -650,6 +693,31 @@ body {
 
     &.pagination__selected {
       @apply bg-speech-blue bg-opacity-20 text-speech-blue font-bold;
+    }
+  }
+}
+
+.content_wrapper .chakra-tabs {
+
+  &__tab-panel {
+    @apply p-0;
+  }
+
+  &__tablist {
+    button {
+      @apply text-speech-navy text-opacity-50 border border-speech-navy-12 bg-speech-very-light-grey border-b-0;
+
+      &:hover {
+        @apply text-speech-blue text-opacity-100;
+      }
+
+      &:focus {
+        @apply shadow-none;
+      }
+
+      &[aria-selected=true] {
+        @apply text-speech-blue bg-white border-t border-t-speech-blue;
+      }
     }
   }
 }

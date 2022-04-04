@@ -38,6 +38,7 @@ module.exports = {
         DEFAULT: '2px 2px 4px rgba(38, 50, 67, 0.1)',
         'md': '4px 4px 10px rgba(38, 50, 67, 0.1)',
         'lg': '8px 8px 16px rgba(38, 50, 67, 0.1)',
+        'xl': '12px 12px 24px rgba(38, 50, 67, 0.15)',
       },
       colors: {
         ...themeColors
