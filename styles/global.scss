@@ -294,10 +294,16 @@ body {
 
 .card {
 
-  @apply transition duration-500;
+  @apply transition duration-500 overflow-hidden relative;
 
   &:hover {
     @apply shadow-xl;
+  }
+
+  a {
+    &::before {
+      @apply block absolute inset-0 content-[""];
+    }
   }
 
   &__featured {
