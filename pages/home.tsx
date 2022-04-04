@@ -6,8 +6,8 @@ import Image from 'next/image';
 export default function Home({ }) {
   return (
     <Dashboard>
-      <h1>Getting Started!</h1>
-      <p className='subtitle'>Here is an example of a Subtitle</p>
+      <h1>Home</h1>
+      <p className='subtitle'>Get started with using our platform in a few simple steps</p>
       <div className='divide_line divide_line__top'></div>
 
       <div className='grid md:grid-cols-1 gap-5 md:gap-8 lg:gap-10 mb-10'>
@@ -98,34 +98,6 @@ export default function Home({ }) {
           <p>Speechmatics Cloud Offering.</p>
           <a href='#'>Learn More</a>
         </div>
-      </div>
-
-      <div className='card'>
-        <h2>Download Audio File</h2>
-        <p>Download our sample audio file into a folder, or use your own.</p>
-
-        <div className='divide_line my-4 md:my-6 lg:my-8 '></div>
-
-        <h2>Create an API key</h2>
-        <p>Download our <a href="#">sample audio file</a> into a folder, or use your own.</p>
-
-        <div className='divide_line my-4 md:my-6 lg:my-8 '></div>
-
-        <h2>Make an API request with code</h2>
-        <p>Copy the following curl command and replace the API key with your own.</p>
-        <p>Run the command to generate a transcript.</p>
-
-        <CodeSnippet>
-          curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
-        </CodeSnippet>
-
-      </div>
-
-
-      <div className="steps_container mt-48">
-        {stepsData.map((item, i) => (
-          <StepItem item={item} key={i} />
-        ))}
       </div>
     </Dashboard >
   );

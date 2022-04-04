@@ -27,17 +27,17 @@ export default function MyApp({ Component, pageProps }) {
   msalInstance.setNavigationClient(navigationClient);
 
   // Account selection logic is app dependent. Adjust as needed for different use cases.
-const accounts = msalInstance.getAllAccounts();
-if (accounts.length > 0) {
-  msalInstance.setActiveAccount(accounts[0]);
-}
-
-msalInstance.addEventCallback((event) => {
-  if (event.eventType === EventType.LOGIN_SUCCESS && (event.payload as any).account) {
-    const account = (event.payload as any).account;
-    msalInstance.setActiveAccount(account);
+  const accounts = msalInstance.getAllAccounts();
+  if (accounts.length > 0) {
+    msalInstance.setActiveAccount(accounts[0]);
   }
-});
+
+  msalInstance.addEventCallback((event) => {
+    if (event.eventType === EventType.LOGIN_SUCCESS && (event.payload as any).account) {
+      const account = (event.payload as any).account;
+      msalInstance.setActiveAccount(account);
+    }
+  });
 
   const HeaderProf = dynamic(() => import('../components/profile/header-profile'), { ssr: false });
 
@@ -73,7 +73,7 @@ msalInstance.addEventCallback((event) => {
               </Head>
               <Component {...pageProps} />
             </div>
-            <div className="footer"></div>
+
           </div>
         </MsalProvider>
       </ChakraProvider>
