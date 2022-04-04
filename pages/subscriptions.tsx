@@ -26,6 +26,9 @@ export default observer(function Subscriptions({ }) {
       </Link>
 
       <div className='content_wrapper billing_information'>
+
+
+
         <div className='grid payment_card_grid'>
           <div className=''>
             <h2>Payment card active </h2>
@@ -61,11 +64,42 @@ export default observer(function Subscriptions({ }) {
 
         </div>
 
+
+
         <div className='divide_line'></div>
         <div className='center_cta'>
           <img className='w-9 h-9 block' src="/assets/icon-pricing.svg" />
           <h2>View our pricing</h2>
           <a className='button button__primary-outline extended'>Update Card</a>
+        </div>
+
+        <div className='table_data data_billing '>
+          <div className='header_row'>
+            <div className='w-4/12'>Model</div>
+            <div className='w-3/12'>Hours Used</div>
+            <div className='w-2/12'>Total Cost</div>
+            <div className='w-3/12'>Payment Status</div>
+
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
+            <div className='w-3/12'>22.2 hours</div>
+            <div className='w-2/12'>$53.65</div>
+            <div className='w-3/12'>Due on 01 March 2022</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
+            <div className='w-3/12'>22.2 hours</div>
+            <div className='w-2/12'>$53.65</div>
+            <div className='w-3/12'>Due on 01 March 2022</div>
+          </div>
+          <div className='data_row'>
+            <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
+            <div className='w-3/12'>22.2 hours</div>
+            <div className='w-2/12'>$53.65</div>
+            <div className='w-3/12'>Due on 01 March 2022</div>
+          </div>
+
         </div>
 
       </div>

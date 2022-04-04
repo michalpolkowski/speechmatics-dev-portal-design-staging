@@ -6,6 +6,7 @@ import { Box, Grid, GridItem, Text, Tabs, TabList, TabPanels, TabPanel, Tab, tok
 import { callGetUsage } from '../utils/call-api';
 import accountContext, { accountStore } from '../utils/account-store-context';
 import { observer } from 'mobx-react-lite';
+import Image from 'next/image'
 
 export default observer(function Usage() {
   const [usageJson, setUsageJson] = useState<any>({});
@@ -100,36 +101,12 @@ export default observer(function Usage() {
 
               </div >
 
-              <div className='content_wrapper mb-10'>
-                <div className='table_data data_billing '>
-                  <div className='header_row'>
-                    <div className='w-4/12'>Model</div>
-                    <div className='w-3/12'>Hours Used</div>
-                    <div className='w-2/12'>Total Cost</div>
-                    <div className='w-3/12'>Payment Status</div>
-
-                  </div>
-                  <div className='data_row'>
-                    <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
-                    <div className='w-3/12'>22.2 hours</div>
-                    <div className='w-2/12'>$53.65</div>
-                    <div className='w-3/12'>Due on 01 March 2022</div>
-                  </div>
-                  <div className='data_row'>
-                    <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
-                    <div className='w-3/12'>22.2 hours</div>
-                    <div className='w-2/12'>$53.65</div>
-                    <div className='w-3/12'>Due on 01 March 2022</div>
-                  </div>
-                  <div className='data_row'>
-                    <div className='w-4/12'>01 Feb 2022 - 08 Feb 2022</div>
-                    <div className='w-3/12'>22.2 hours</div>
-                    <div className='w-2/12'>$53.65</div>
-                    <div className='w-3/12'>Due on 01 March 2022</div>
-                  </div>
-
-                </div>
-
+            </TabPanel>
+            {/* Summary */}
+            <TabPanel>
+              <div className='content_wrapper'>
+                <h2>Usage metrics</h2>
+                <p>01 February 2022 to 08 February 2022</p>
                 <div className='table_data data_usage_summary'>
                   <div className='header_row'>
                     <div className='w-3/12'>Model</div>
@@ -151,6 +128,33 @@ export default observer(function Usage() {
                   </div>
                 </div>
 
+                <Grid className='gap-8' templateColumns="repeat(4, 1fr)">
+                  <GridItem>Model</GridItem>
+                  <GridItem>Limit (hours / month)</GridItem>
+                  <GridItem>Hours used</GridItem>
+                  <GridItem>Requests made</GridItem>
+
+                  <GridItem>Standard Model</GridItem>
+                  <GridItem>{accountStore.getContractLimitHrs()} hours</GridItem>
+                  <GridItem data-qa="usage-standard">
+                    {Number(currentUsage?.usageStandard).toFixed(1)} hours
+                  </GridItem>
+                  <GridItem data-qa="requests-standard">{currentUsage?.countStandard}</GridItem>
+
+                  <GridItem>Enhanced Model</GridItem>
+                  <GridItem>{accountStore.getContractLimitHrs()} hours</GridItem>
+                  <GridItem data-qa="usage-enhanced">
+                    {Number(currentUsage?.usageEnhanced).toFixed(1)} hours
+                  </GridItem>
+                  <GridItem data-qa="requests-enhanced">{currentUsage?.countEnhanced}</GridItem>
+                </Grid>
+              </div>
+            </TabPanel>
+            {/* Details */}
+            <TabPanel>
+              <div className='content_wrapper'>
+                <h2>Usage metrics</h2>
+                <p>01 February 2022 to 08 February 2022</p>
                 <div className='table_data data_usage_details '>
                   <div className='header_row'>
                     <div className='w-4/12'>Date</div>
@@ -179,6 +183,7 @@ export default observer(function Usage() {
                   </div>
                 </div>
 
+
                 <div className='flex flex-row items-center justify-between gap-8 mt-6'>
                   <p>Showing <span className='font-bold'>2 of 2</span> periods</p>
                   <div className='pagination'>
@@ -192,39 +197,17 @@ export default observer(function Usage() {
                   </div>
                 </div>
 
-              </div>
-            </TabPanel>
-            {/* Summary */}
-            <TabPanel>
-              <div className='content_wrapper'>
-                <Grid className='gap-8' templateColumns="repeat(4, 1fr)">
-                  <GridItem>Model</GridItem>
-                  <GridItem>Limit (hours / month)</GridItem>
-                  <GridItem>Hours used</GridItem>
-                  <GridItem>Requests made</GridItem>
-
-                  <GridItem>Standard Model</GridItem>
-                  <GridItem>{accountStore.getContractLimitHrs()} hours</GridItem>
-                  <GridItem data-qa="usage-standard">
-                    {Number(currentUsage?.usageStandard).toFixed(1)} hours
-                  </GridItem>
-                  <GridItem data-qa="requests-standard">{currentUsage?.countStandard}</GridItem>
-
-                  <GridItem>Enhanced Model</GridItem>
-                  <GridItem>{accountStore.getContractLimitHrs()} hours</GridItem>
-                  <GridItem data-qa="usage-enhanced">
-                    {Number(currentUsage?.usageEnhanced).toFixed(1)} hours
-                  </GridItem>
-                  <GridItem data-qa="requests-enhanced">{currentUsage?.countEnhanced}</GridItem>
-                </Grid>
-              </div>
-            </TabPanel>
-            {/* Details */}
-            <TabPanel>
-              <div className='content_wrapper'>
-                <h3>
-                  Breakdown
-                </h3>
+                <div className='toast_notification toast_notification__standard'>
+                  <div className='w-6 h-6 items-center justify-center shrink-0'>
+                    <Image
+                      src="/assets/icon-general.svg"
+                      alt="Intro Icon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <span>All usage is reported on a (UTC) calendar day basis and excludes the current day</span>
+                </div>
 
                 <Grid templateColumns="repeat(2, 1fr)" gap={5} marginTop="2em">
                   <GridItem>Day</GridItem>
