@@ -1,5 +1,6 @@
 .dashboard_sidenav {
   @apply items-center justify-start flex flex-col lg:fixed lg:h-full shrink-0 bg-white border-r border-speech-navy border-solid border-opacity-20;
+  
   @screen lg {
     @apply w-[250px] pt-[7vh];
   }

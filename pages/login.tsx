@@ -10,7 +10,7 @@ export default function Login() {
   const router = useRouter();
 
   const { instance, accounts, inProgress } = useMsal();
-
+ 
   useEffect(() => {
     let st: number;
     if (inProgress == 'none' && accounts.length > 0) {
@@ -21,7 +21,9 @@ export default function Login() {
   }, [inProgress, accounts, accounts?.length]);
 
   const loginHandler = () => {
-    instance.loginRedirect(loginRequest).catch((error) => {
+    instance.loginRedirect(loginRequest).then((res) => {
+      console.log(res);
+    }).catch((error) => {
       console.log(error);
     });
   }

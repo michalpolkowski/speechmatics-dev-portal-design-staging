@@ -87,7 +87,7 @@ export default observer(function Dashboard({ children }) {
     instance.logoutRedirect({ account: account });
   };
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && typeof window !== 'undefined' ) {
     return <NotLoggedin />;
   }
 
