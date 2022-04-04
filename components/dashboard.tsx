@@ -144,7 +144,9 @@ function NotLoggedin() {
         justifyContent: 'center',
       }}
     >
-      not logged in, redirecting...
+      <span>
+        Not logged in, redirecting...
+      </span>
     </div>
   );
 }
