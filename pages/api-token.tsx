@@ -7,6 +7,7 @@ import {
   Spinner,
   Tooltip,
   VStack,
+  Skeleton,
   Text,
   useDisclosure,
   Modal,
@@ -163,7 +164,7 @@ const GenerateTokenCompo = observer(() => {
             )}
             <Button
               className="default_button"
-              disabled={apiKeys?.length >= 5}
+              disabled={apiKeys?.length >= 5 || !apiKeys}
               onClick={() => setGenTokenStage('inputName')}
             >
               Generate new token
@@ -307,6 +308,12 @@ const PreviousTokens = observer(() => {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
+          <Image
+              src="/assets/icon-warning.svg"
+              alt="Intro Icon"
+              width={128}
+              height={128}
+            />
           <ModalBody>Remove the token "{apikeyName}"?</ModalBody>
 
           <ModalFooter>
@@ -322,94 +329,57 @@ const PreviousTokens = observer(() => {
 
       <div className='content_wrapper'>
         <h2>Current API Tokens</h2>
-        <p className='mb-8'>You have currently used <span className="font-bold">3 / 5</span> of your available API Tokens</p>
+        {apiKeys &&
+          <p className='mb-8'>You have currently used <span className="font-bold">{apiKeys?.length} / 5</span> of your available API Tokens</p>
+        }
 
-        <div className='table_data'>
+        <div className='table_data mt-2'>
           <div className='header_row'>
+            <div className="w-1/3">ID</div>
             <div className='w-1/3'>Token Name</div>
             <div className='flex-1'>Created</div>
             <div className='shrink-0'>Delete</div>
           </div>
+          {apiKeys?.length > 0 && apiKeys?.map((el: ApiKey, index) => (
           <div className='data_row'>
-            <div className='w-1/3'>Test Key</div>
-            <div className='flex-1'>21/12/2022 - 16:4spm</div>
+            <div className='w-1/3'>
+              <Text>{el.name}</Text>
+            </div>
+            <div className="w-1/3">
+              <Text>{el.apikey_id.slice(0, 15)}</Text>
+            </div>
+            <div className='flex-1'>
+              <Text>{new Date(el.created_at).toUTCString()}</Text>
+            </div>
             <div className='shrink-0 flex items-center'>
               <Image
                 src="/assets/icon-delete.svg"
                 alt="Speechmatics"
                 width={20}
                 height={20}
+                onClick={() => aboutToRemoveOne(el)}
               />
             </div>
           </div>
-          <div className='data_row'>
-            <div className='w-1/3'>Test Key</div>
-            <div className='flex-1'>21/12/2022 - 16:4spm</div>
-            <div className='shrink-0 flex items-center'>
-              <Image
-                src="/assets/icon-delete.svg"
-                alt="Speechmatics"
-                width={20}
-                height={20}
-              />
-            </div>
-          </div>
-          <div className='data_row'>
-            <div className='w-1/3'>Test Key</div>
-            <div className='flex-1'>21/12/2022 - 16:4spm</div>
-            <div className='shrink-0 flex items-center'>
-              <Image
-                src="/assets/icon-delete.svg"
-                alt="Speechmatics"
-                width={20}
-                height={20}
-              />
-            </div>
-          </div>
-          <div className='data_row'>
-            <div className='w-1/3'>Test Key</div>
-            <div className='flex-1'>21/12/2022 - 16:4spm</div>
-            <div className='shrink-0 flex items-center'>
-              <Image
-                src="/assets/icon-delete.svg"
-                alt="Speechmatics"
-                width={20}
-                height={20}
-              />
-            </div>
-          </div>
-        </div>
-
-        <VStack alignItems="stretch" marginRight="25%">
-          {apiKeys?.map((el: ApiKey, index) => (
-            <HStack justifyContent="stretch" key={index}>
-              <Box flex="1">
-                <Tooltip label={`(token's id ${el.apikey_id})`} placement="top">
-                  <Text>{el.apikey_id.slice(0, 15)}</Text>
-                </Tooltip>
-              </Box>
-              <Box flex="1">
-                <Tooltip label="(token's name)" placement="top">
-                  <Text>{el.name}</Text>
-                </Tooltip>
-              </Box>
-              <Box flex="1" noOfLines={1}>
-                <Tooltip label={`date created: ${new Date(el.created_at)}`} placement="top">
-                  <Text>{new Date(el.created_at).toUTCString()}</Text>
-                </Tooltip>
-              </Box>
-              <Tooltip label="remove" placement="top">
-                <IconButton
-                  className="default_button"
-                  aria-label="remove"
-                  style={{ padding: 10, backgroundColor: '' }}
-                  icon={<IoTrashBinOutline />}
-                  onClick={() => aboutToRemoveOne(el)}
-                />
-              </Tooltip>
-            </HStack>
           ))}
-        </VStack>
+
+          {(typeof apiKeys === 'undefined' || !apiKeys || apiKeys?.length === 0) &&
+            <div className='data_row'>
+              <div className='w-1/3'>
+                <Skeleton height='20px' />
+              </div>
+              <div className="w-1/3">
+                <Skeleton height='20px' />
+              </div>
+              <div className='flex-1'>
+                <Skeleton width="100%" height='20px' />
+              </div>
+              <div className='w-1/10 shrink-0 ml-4 flex-1 flex justify-end'>
+                <Skeleton width="60px" height='20px' />
+              </div>
+            </div>
+          }
+        </div>
       </div>
 
     </section>
