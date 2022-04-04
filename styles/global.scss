@@ -684,7 +684,7 @@ body {
   }
 }
 
-.content_wrapper .chakra-tabs {
+.content .chakra-tabs {
 
   &__tab-panel {
     @apply p-0;
@@ -692,7 +692,7 @@ body {
 
   &__tablist {
     button {
-      @apply text-speech-navy text-opacity-50 border border-speech-navy-12 bg-speech-very-light-grey border-b-0;
+      @apply text-speech-navy text-opacity-50 border border-speech-navy-12 bg-speech-grey-08 border-b-0;
 
       &:hover {
         @apply text-speech-blue text-opacity-100;
@@ -703,7 +703,7 @@ body {
       }
 
       &[aria-selected=true] {
-        @apply text-speech-blue bg-white border-t border-t-speech-blue;
+        @apply text-speech-blue bg-white border-t border-t-2 border-t-speech-blue;
       }
     }
   }

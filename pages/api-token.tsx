@@ -258,17 +258,17 @@ const GenerateTokenCompo = observer(() => {
             <TabPanels>
               <TabPanel>
                 <CodeSnippet>
-                  curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                  Windows curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
                 </CodeSnippet>
               </TabPanel>
               <TabPanel>
                 <CodeSnippet>
-                  curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                  Linux curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
                 </CodeSnippet>
               </TabPanel>
               <TabPanel>
                 <CodeSnippet>
-                  curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                  Mac curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
                 </CodeSnippet>
               </TabPanel>
             </TabPanels>
