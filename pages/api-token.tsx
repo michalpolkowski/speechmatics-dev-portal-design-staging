@@ -163,7 +163,7 @@ const GenerateTokenCompo = observer(() => {
             )}
             <Button
               className="default_button"
-              disabled={apiKeys?.length >= 5}
+              disabled={apiKeys?.length >= 5 || !apiKeys}
               onClick={() => setGenTokenStage('inputName')}
             >
               Generate new token
