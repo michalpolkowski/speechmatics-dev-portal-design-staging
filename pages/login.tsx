@@ -10,7 +10,7 @@ export default function Login() {
   const router = useRouter();
 
   const { instance, accounts, inProgress } = useMsal();
-
+ 
   useEffect(() => {
     let st: number;
     if (inProgress == 'none' && accounts.length > 0) {
@@ -21,7 +21,9 @@ export default function Login() {
   }, [inProgress, accounts, accounts?.length]);
 
   const loginHandler = () => {
-    instance.loginRedirect(loginRequest).catch((error) => {
+    instance.loginRedirect(loginRequest).then((res) => {
+      console.log(res);
+    }).catch((error) => {
       console.log(error);
     });
   }
@@ -33,7 +35,7 @@ export default function Login() {
       return <div className="login_text">Login is currently in progress!</div>;
     } else if (inProgress === 'none' && accounts.length == 0) {
       return (
-        <div className="login_form py-8">
+        <div className={loginStyles.login_form}>
           <button className={loginStyles.next_button} onClick={loginHandler}>
             Log in / Sign up ➔
           </button>
@@ -43,7 +45,7 @@ export default function Login() {
   };
 
   return (
-    <div className="login_container">
+    <div className={loginStyles.login_container}>
       <SpeechmaticsLogo />
 
       <LoginSub />

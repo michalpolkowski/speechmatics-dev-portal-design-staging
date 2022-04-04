@@ -4,6 +4,7 @@
 
 .dashboard_content {
   @apply flex flex-row flex-1 justify-center mt-5 pb-12;
+
   @screen md {
     @apply mt-8;
   }
@@ -209,11 +210,11 @@
   @apply flex flex-col mb-12;
 }
 
-.account_forms input[placeholder='title'] {
+.account_forms input[placeholder=title] {
   width: 100px;
 }
 
-.account_forms input[placeholder='email'] {
+.account_forms input[placeholder=email] {
   width: 300px;
 }
 
