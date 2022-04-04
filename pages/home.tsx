@@ -6,8 +6,8 @@ import Image from 'next/image';
 export default function Home({ }) {
   return (
     <Dashboard>
-      <h1>Getting Started!</h1>
-      <p className='subtitle'>Here is an example of a Subtitle</p>
+      <h1>Home</h1>
+      <p className='subtitle'>Get started with using our platform in a few simple steps</p>
       <div className='divide_line divide_line__top'></div>
 
       <div className='grid md:grid-cols-1 gap-5 md:gap-8 lg:gap-10 mb-10'>
