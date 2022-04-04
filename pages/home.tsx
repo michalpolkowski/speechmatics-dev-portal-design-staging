@@ -24,12 +24,14 @@ export default function Home({ }) {
           <div className='cta_text'>
             <h3>Transcribe an audio file with code</h3>
           </div>
-          <a href='#' className='button button__extended button__white shrink-0'>Get Started</a>
+          <a href='/get-started' className='button button__extended button__white shrink-0'>Get Started</a>
         </div>
 
       </div>
 
-      <div className='grid md:grid-cols-2 gap-5 md:gap-8 lg:gap-10 mb-10 hidden'>
+      {/*  NOT USED FOR NOW
+
+      <div className='grid md:grid-cols-2 gap-5 md:gap-8 lg:gap-10 mb-10 '>
 
         <div className='padding card card__centered card__featured card__blue'>
           <div className='w-16 h-16 items-center justify-center mb-3'>
@@ -58,45 +60,47 @@ export default function Home({ }) {
 
       </div>
 
+      */}
+
       <div className='cards_wrapper mb-10'>
-        <div className='card card__centered'>
-          <div className='w-8 h-8 items-center justify-center mb-3'>
+        <div className='card card__centereddd'>
+          <div className='w-12 h-12 items-center justify-center mb-4 xl:mb-5'>
             <Image
               src="/assets/icon-test.svg"
               alt="Intro Icon"
-              width={26}
-              height={26}
+              width={48}
+              height={48}
             />
           </div>
-          <h3>Introduction</h3>
-          <p>How to use the RESTful API for the Speechmatics Cloud Offering.</p>
-          <a href='#'>Learn More</a>
+          <h3>Manage API Tokens</h3>
+          <p className='mb-6'>You need to create an API key to make API requests.</p>
+          <a href='/api-token'>Create API Token</a>
         </div>
-        <div className='card card__centered'>
-          <div className='w-8 h-8 items-center justify-center mb-3'>
+        <div className='card card__centereddd'>
+          <div className='w-12 h-12 items-center justify-center mb-4 xl:mb-5'>
             <Image
               src="/assets/icon-test.svg"
               alt="Intro Icon"
-              width={26}
-              height={26}
+              width={48}
+              height={48}
             />
           </div>
-          <h3>Configuring the job request  with a longer title</h3>
-          <p>How to use the RESTful API for the Speechmatics Cloud Offering.</p>
-          <a href='#'>Learn More</a>
+          <h3>Track your usage</h3>
+          <p className='mb-6'>Usage is measured in hours of audio processed</p>
+          <a href='/usage'>View Usage</a>
         </div>
-        <div className='card card__centered'>
-          <div className='card__icon'>
+        <div className='card card__centereddd'>
+          <div className='w-12 h-12 items-center justify-center mb-4 xl:mb-5'>
             <Image
               src="/assets/icon-test.svg"
               alt="Intro Icon"
-              width={26}
-              height={26}
+              width={48}
+              height={48}
             />
           </div>
-          <h3>Configuring</h3>
-          <p>Speechmatics Cloud Offering.</p>
-          <a href='#'>Learn More</a>
+          <h3>Learning Resources</h3>
+          <p className='mb-6'>Explore our documentation and learning resources</p>
+          <a href='/resources'>Learn</a>
         </div>
       </div>
     </Dashboard >
