@@ -9,7 +9,26 @@ export default function Home({ }) {
       <p className='subtitle'>Here is an example of a Subtitle</p>
       <div className='divide_line divide_line__top'></div>
 
-      <div className='grid md:grid-cols-2  gap-5 md:gap-8 lg:gap-10 mb-10'>
+      <div className='grid md:grid-cols-1 gap-5 md:gap-8 lg:gap-10 mb-10'>
+
+        <div className='cta_callout cta_callout__speech_blue'>
+          <div className='icon'>
+            <Image
+              src="/assets/icon-transcribe.svg"
+              alt="Intro Icon"
+              width={56}
+              height={56}
+            />
+          </div>
+          <div className='cta_text'>
+            <h3>Transcribe an audio file with code</h3>
+          </div>
+          <a href='#' className='button button__extended button__white shrink-0'>Get Started</a>
+        </div>
+
+      </div>
+
+      <div className='grid md:grid-cols-2 gap-5 md:gap-8 lg:gap-10 mb-10 hidden'>
 
         <div className='padding card card__centered card__featured card__blue'>
           <div className='w-16 h-16 items-center justify-center mb-3'>
@@ -99,7 +118,7 @@ export default function Home({ }) {
           <div className='code_snippet__code'>
             curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
           </div>
-          <button className='button button__primary button__extended px-12 shrink-0 ml-8 copy bg-white text-black'>Copy</button>
+          <button className='button button__grey button__small'>Copy</button>
         </div>
 
       </div>

@@ -36,15 +36,15 @@ export default observer(function Subscriptions({ }) {
 
           <div className='payment_card payment_card__-not-disabled'>
 
-            <div className='payment_card__back bg-speech-blue flex flex-col rounded-2xl h-52 w-80 absolute right-8 top-0'>
-              <div className='payment_card__stripe mt-6 h-12 bg-opacity-80 bg-black'></div>
-              <div className='payment_card__signature m-4 opacity-90 h-10 bg-white'></div>
+            <div className='payment_card__back'>
+              <div className='payment_card__stripe'></div>
+              <div className='payment_card__signature'></div>
             </div>
 
-            <div className='payment_card__front p-6 bg-speech-blue flex flex-col self-end rounded-2xl h-52 w-80 relative z-10 mt-10 mb-6'>
+            <div className='payment_card__front'>
               <img className='self-end block rounded' src="/assets/logo-visa.svg" />
               <img className='self-start mt-1 block' src="/assets/card-chip.svg" />
-              <div className='payment_card__numbers flex flex-row justify-between text-white tracking-widest text-lg my-2 mt-3'>
+              <div className='payment_card__numbers'>
                 <div>XXXX</div>
                 <div>XXXX</div>
                 <div>XXXX</div>
