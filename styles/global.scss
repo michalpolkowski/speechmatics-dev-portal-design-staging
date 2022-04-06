@@ -269,11 +269,23 @@ body {
   @apply bg-white p-5 -mx-5 shadow-md flex flex-col border-t border-b border-speech-navy border-opacity-10;
 
   @screen md {
-    @apply p-6 m-0 border;
+    @apply p-8 m-0 border;
   }
 
   @screen lg {
     @apply p-8;
+  }
+
+  @screen xl {
+    @apply p-10;
+  }
+
+  p.mini_title {
+    @apply mb-6;
+
+    @screen md {
+      @apply mb-8;
+    }
   }
 }
 
@@ -444,25 +456,65 @@ body {
 
 
 .model_holder {
-  @apply grid gap-5 mt-5 mb-5;
+  @apply grid gap-5 mb-5;
 
-  @screen md {
-    @apply grid-cols-2 gap-10 mt-8 mb-8;
+  @screen sm {
+    @apply grid-cols-2 gap-8 mb-8;
+  }
+
+  @screen lg {
+    @apply gap-8 mb-8;
+  }
+
+  @screen xl {
+    @apply gap-10 mb-10;
   }
 
   .model_compare {
     .model_info {
       @apply bg-speech-blue bg-opacity-20;
 
-      .model_info_gap {
-        @apply flex gap-6 flex-row;
+      &.padding {
+        @apply px-6 py-4;
 
         @screen md {
-          @apply gap-8;
+          @apply px-8 py-5;
+        }
+      }
+
+      .model_info_gap {
+        @apply flex flex-row;
+
+        img {
+          @apply w-auto h-24 mr-4;
+        }
+
+        @screen sm {
+          @apply flex-col;
+
+          img {
+            @apply mb-4 mr-0;
+          }
+        }
+
+        @screen xl {
+          @apply flex-row;
+
+          img {
+            @apply h-24 mr-6 mb-0;
+          }
         }
 
         .model_title {
           @apply flex-1 flex flex-col justify-center;
+
+          @screen sm {
+            @apply text-center;
+          }
+
+          @screen xl {
+            @apply text-left;
+          }
         }
       }
 
@@ -485,6 +537,31 @@ body {
 
     .model_description {
       @apply bg-speech-blue bg-opacity-10;
+
+      @screen sm {
+        @apply text-center;
+      }
+
+      @screen lg {
+        @apply text-left;
+      }
+
+      &.padding {
+        @apply px-6 py-4;
+
+        @screen sm {
+          @apply px-8 py-5;
+        }
+
+        @screen md {
+          @apply px-6 py-5;
+        }
+
+        @screen lg {
+          @apply py-6 px-8;
+        }
+
+      }
 
       p {
         @apply text-sm;
@@ -680,23 +757,7 @@ body {
 
 
 
-.pagination {
-  ul {
-    @apply flex flex-row items-center gap-2;
-  }
 
-  li {
-    @apply px-3 py-1 cursor-pointer transition;
-
-    &:hover {
-      @apply text-speech-blue;
-    }
-
-    &.pagination__selected {
-      @apply bg-speech-blue bg-opacity-20 text-speech-blue font-bold;
-    }
-  }
-}
 
 .content .chakra-tabs {
 
@@ -722,4 +783,32 @@ body {
       }
     }
   }
+}
+
+
+.pagination-holder {
+  @apply flex flex-row items-center justify-between mt-4;
+
+  &__pagination {
+    ul {
+      @apply flex flex-row items-center gap-2;
+    }
+
+    li {
+      @apply px-3 py-1 cursor-pointer transition;
+
+      &:hover {
+        @apply text-speech-blue;
+      }
+
+      &.pagination__selected {
+        @apply bg-speech-blue bg-opacity-20 text-speech-blue font-bold;
+      }
+    }
+
+    @screen md {
+      @apply ml-4;
+    }
+  }
+
 }

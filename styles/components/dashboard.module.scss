@@ -14,11 +14,11 @@
   }
 
   @screen lg {
-    @apply ml-[250px] mt-[7vh];
+    @apply ml-[250px] mt-[5vh];
   }
 
   @screen xl {
-    @apply ml-[320px];
+    @apply ml-[320px] mt-[7vh];
   }
 }
 

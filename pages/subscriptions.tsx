@@ -19,15 +19,8 @@ export default observer(function Subscriptions({ }) {
         </p>
       </div>
       <div className='divide_line divide_line__top'></div>
-      <Link href="/subscribe/">
-        <div className="default_button">
-          {paymentMethod ? 'replace payment method' : '+ add subscription'}{' '}
-        </div>
-      </Link>
 
       <div className='content_wrapper billing_information'>
-
-
 
         <div className='grid payment_card_grid'>
           <div className=''>
