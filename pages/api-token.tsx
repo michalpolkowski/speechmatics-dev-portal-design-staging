@@ -252,9 +252,43 @@ const GenerateTokenCompo = observer(() => {
         <div className={tokenStyles.curl_commands}>
           <DashboardTabs>
             <TabList>
-              <Tab>Windows</Tab>
-              <Tab>Linux</Tab>
-              <Tab>Mac</Tab>
+              <Tab>
+                <span className='icon mr-2 flex items-center'>
+                  <Image
+                    src="/assets/icon-windows.svg"
+                    alt="Speechmatics"
+                    className='cursor-pointer'
+                    width={20}
+                    height={20}
+                    onClick={() => aboutToRemoveOne(el)}
+                  />
+                </span>
+                Windows</Tab>
+              <Tab>
+                <span className='icon mr-2 flex items-center'>
+                  <Image
+                    src="/assets/icon-linux.svg"
+                    alt="Speechmatics"
+                    className='cursor-pointer'
+                    width={20}
+                    height={20}
+                    onClick={() => aboutToRemoveOne(el)}
+                  />
+                </span>
+                Linux
+              </Tab>
+              <Tab>
+                <span className='icon mr-2 flex items-center'>
+                  <Image
+                    src="/assets/icon-apple.svg"
+                    alt="Speechmatics"
+                    className='cursor-pointer'
+                    width={20}
+                    height={20}
+                    onClick={() => aboutToRemoveOne(el)}
+                  />
+                </span>
+                Mac</Tab>
             </TabList>
             <TabPanels>
               <TabPanel>
@@ -309,11 +343,11 @@ const PreviousTokens = observer(() => {
         <ModalContent>
           <ModalCloseButton />
           <Image
-              src="/assets/icon-warning.svg"
-              alt="Intro Icon"
-              width={128}
-              height={128}
-            />
+            src="/assets/icon-warning.svg"
+            alt="Intro Icon"
+            width={128}
+            height={128}
+          />
           <ModalBody>Remove the token "{apikeyName}"?</ModalBody>
 
           <ModalFooter>
@@ -335,47 +369,48 @@ const PreviousTokens = observer(() => {
 
         <div className='table_data mt-2'>
           <div className='header_row'>
-            <div className="w-1/3">ID</div>
+            <div className="w-1/4">ID</div>
             <div className='w-1/3'>Token Name</div>
             <div className='flex-1'>Created</div>
             <div className='shrink-0'>Delete</div>
           </div>
           {apiKeys?.length > 0 && apiKeys?.map((el: ApiKey, index) => (
-          <div className='data_row'>
-            <div className='w-1/3'>
-              <Text>{el.name}</Text>
+            <div className='data_row'>
+              <div className='w-1/4'>
+                <Text>{el.name}</Text>
+              </div>
+              <div className="w-1/3">
+                <Text>{el.apikey_id.slice(0, 15)}</Text>
+              </div>
+              <div className='flex-1'>
+                <Text>{new Date(el.created_at).toUTCString()}</Text>
+              </div>
+              <div className='shrink-0 flex items-center w-5'>
+                <Image
+                  src="/assets/icon-delete.svg"
+                  alt="Speechmatics"
+                  className='cursor-pointer'
+                  width={20}
+                  height={20}
+                  onClick={() => aboutToRemoveOne(el)}
+                />
+              </div>
             </div>
-            <div className="w-1/3">
-              <Text>{el.apikey_id.slice(0, 15)}</Text>
-            </div>
-            <div className='flex-1'>
-              <Text>{new Date(el.created_at).toUTCString()}</Text>
-            </div>
-            <div className='shrink-0 flex items-center'>
-              <Image
-                src="/assets/icon-delete.svg"
-                alt="Speechmatics"
-                width={20}
-                height={20}
-                onClick={() => aboutToRemoveOne(el)}
-              />
-            </div>
-          </div>
           ))}
 
           {(typeof apiKeys === 'undefined' || !apiKeys || apiKeys?.length === 0) &&
             <div className='data_row'>
-              <div className='w-1/3'>
+              <div className='w-1/4'>
                 <Skeleton height='20px' />
               </div>
               <div className="w-1/3">
                 <Skeleton height='20px' />
               </div>
               <div className='flex-1'>
-                <Skeleton width="100%" height='20px' />
+                <Skeleton height='20px' />
               </div>
-              <div className='w-1/10 shrink-0 ml-4 flex-1 flex justify-end'>
-                <Skeleton width="60px" height='20px' />
+              <div className='shrink-0 w-5'>
+                <Skeleton width="20px" height='20px' />
               </div>
             </div>
           }

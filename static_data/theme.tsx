@@ -45,11 +45,11 @@ const theme = extendTheme({
       },
     },
     Modal: {
-      modalcontent: {
+      modalContent: {
         padding: '100px',
       },
       variants: {
-        
+
       }
     }
   },

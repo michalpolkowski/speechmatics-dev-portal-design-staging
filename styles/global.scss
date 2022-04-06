@@ -73,16 +73,22 @@ body {
 }
 
 .speechmatics_logo {
-  @apply flex items-center gap-x-3 p-4;
+  @apply flex items-center p-4;
 
   @screen md {
     @apply p-5;
   }
 
-  &__wording {}
-
   &__symbol {
     @apply shrink-0;
+  }
+
+  &__wording {
+    @apply hidden items-center;
+
+    @screen md {
+      @apply flex ml-3;
+    }
   }
 }
 
@@ -375,6 +381,10 @@ body {
   .data_row,
   .header_row {
     @apply py-3 flex flex-row justify-between space-x-4;
+
+    @screen xl {
+      @apply space-x-6;
+    }
   }
 
   .data_row {

@@ -1,4 +1,3 @@
-
 .login_container {
     @apply h-full flex flex-col justify-center items-center py-4;
 }
@@ -31,7 +30,7 @@
     @apply flex flex-col items-center my-4;
 }
 
-.login_form > *:not(:first-child) {
+.login_form>*:not(:first-child) {
     margin-top: 1em;
 }
 
