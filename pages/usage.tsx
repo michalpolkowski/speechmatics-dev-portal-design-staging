@@ -52,7 +52,7 @@ export default observer(function Usage() {
             <TabPanel>
               <div className='content_wrapper mb-10'>
                 <h2>Usage Limits</h2>
-                <p>Hours of audio per month</p>
+                <p className='mini_title'>Hours of audio per month</p>
 
                 <div className='model_holder'>
 
@@ -74,7 +74,7 @@ export default observer(function Usage() {
                   <div className='model_compare model_enhanced'>
                     <div className='model_info padding'>
                       <div className='model_info_gap'>
-                        <img src="/assets/model-balloon.svg" />
+                        <img src="/assets/model-rocket.svg" />
                         <div className='model_title'>
                           <p>Enhanced Model</p>
                           <h3>2 hours / month</h3>
@@ -99,6 +99,12 @@ export default observer(function Usage() {
                   <a href='#' className='button button__extended button__white shrink-0'>Add a card</a>
                 </div>
 
+                <div className='center_cta mt-8'>
+                  <img className='w-9 h-9 block' src="/assets/icon-pricing.svg" />
+                  <h2>View our pricing</h2>
+                  <a className='button button__primary-outline extended'>Update Card</a>
+                </div>
+
               </div >
 
             </TabPanel>
@@ -106,7 +112,7 @@ export default observer(function Usage() {
             <TabPanel>
               <div className='content_wrapper'>
                 <h2>Usage metrics</h2>
-                <p>01 February 2022 to 08 February 2022</p>
+                <p className='mini_title'>01 February 2022 to 08 February 2022</p>
                 <div className='table_data data_usage_summary'>
                   <div className='header_row'>
                     <div className='w-3/12'>Model</div>
@@ -154,7 +160,7 @@ export default observer(function Usage() {
             <TabPanel>
               <div className='content_wrapper'>
                 <h2>Usage metrics</h2>
-                <p>01 February 2022 to 08 February 2022</p>
+                <p className='mini_title'>01 February 2022 to 08 February 2022</p>
                 <div className='table_data data_usage_details '>
                   <div className='header_row'>
                     <div className='w-4/12'>Date</div>
@@ -184,9 +190,9 @@ export default observer(function Usage() {
                 </div>
 
 
-                <div className='flex flex-row items-center justify-between gap-8 mt-6'>
+                <div className='pagination-holder'>
                   <p>Showing <span className='font-bold'>2 of 2</span> periods</p>
-                  <div className='pagination'>
+                  <div className='pagination-holder__pagination'>
                     <ul>
                       <li>1</li>
                       <li>2</li>
@@ -197,7 +203,7 @@ export default observer(function Usage() {
                   </div>
                 </div>
 
-                <div className='toast_notification toast_notification__standard'>
+                <div className='toast_notification toast_notification__standard mt-8'>
                   <div className='w-6 h-6 items-center justify-center shrink-0'>
                     <Image
                       src="/assets/icon-general.svg"

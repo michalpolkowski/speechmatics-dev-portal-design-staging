@@ -10,7 +10,7 @@ export default function Login() {
   const router = useRouter();
 
   const { instance, accounts, inProgress } = useMsal();
- 
+
   useEffect(() => {
     let st: number;
     if (inProgress == 'none' && accounts.length > 0) {
@@ -36,8 +36,8 @@ export default function Login() {
     } else if (inProgress === 'none' && accounts.length == 0) {
       return (
         <div className={loginStyles.login_form}>
-          <button className={loginStyles.next_button} onClick={loginHandler}>
-            Log in / Sign up ➔
+          <button className="button button__primary" onClick={loginHandler}>
+            Log in / Sign up
           </button>
         </div>
       );
