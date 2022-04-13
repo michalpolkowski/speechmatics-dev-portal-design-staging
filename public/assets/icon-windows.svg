@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-windows</title>
+    <g id="icon-windows" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(0.000000, 0.000000)" fill="#0078D6" fill-rule="nonzero">
+            <path d="M0,5.70776256 L16.3013699,3.47031963 L16.3013699,19.2237443 L0,19.2237443 M18.2648402,3.15068493 L39.8630137,0 L39.8630137,19.086758 L18.2648402,19.086758 M0,20.8858447 L16.3013699,20.8858447 L16.3013699,36.6849315 L0,34.4018265 M18.2648402,21.0958904 L39.8630137,21.0958904 L39.8630137,40 L18.2648402,36.9406393" id="Shape"></path>
+        </g>
+    </g>
+</svg>

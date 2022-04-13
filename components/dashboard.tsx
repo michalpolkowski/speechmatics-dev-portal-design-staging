@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import menuData from '../static_data/menu-data';
 import { useContext, useEffect, useState } from 'react';
-import { SpeechmaticsLogo, ExternalLink, AccountIcon, LogoutIcon } from './Icons';
+import { ExternalLink, AccountIcon, LogoutIcon } from './Icons';
 import { Tooltip, Link as ChakraLink, Button, Box, useDisclosure, Spinner } from '@chakra-ui/react';
 import { useMsal, useIsAuthenticated } from '@azure/msal-react';
 import TestApiBlock from './call-test';
@@ -19,6 +19,8 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react';
+import dashStyles from '../styles/components/dashboard.module.scss';
+import sidenavStyles from '../styles/components/sidenav.module.scss';
 
 export default observer(function Dashboard({ children }) {
   const router = useRouter();
@@ -85,12 +87,12 @@ export default observer(function Dashboard({ children }) {
     instance.logoutRedirect({ account: account });
   };
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && typeof window !== 'undefined' ) {
     return <NotLoggedin />;
   }
 
   return (
-    <div className="dashboard_container" onKeyDown={onKeyDown} tabIndex={0}>
+    <div className={dashStyles.dashboard_container} onKeyDown={onKeyDown} tabIndex={0}>
       <Modal isOpen={isModalOpen} onClose={onModalClose} closeOnOverlayClick={false}>
         <ModalOverlay />
         <ModalContent>
@@ -101,12 +103,8 @@ export default observer(function Dashboard({ children }) {
           <ModalFooter />
         </ModalContent>
       </Modal>
-      <div className="dashboard_sidenav">
-        <Box marginTop="0.5em">
-          <SpeechmaticsLogo w={230} h={120} />
-        </Box>
-        <div className="hi_name">Hi, {account.name || account.username}!</div>
-        <div className="nav_menu">
+      <div className={sidenavStyles.dashboard_sidenav}>
+        <div className={`${sidenavStyles.nav_menu}`}>
           {menuData.map((item) => (
             <MenuElem item={item} key={item.path} selected={router.asPath == item.path} />
           ))}
@@ -114,31 +112,19 @@ export default observer(function Dashboard({ children }) {
 
         {showTestTools && <TestApiBlock tokenPayload={tokenPayload} />}
       </div>
-      <div className="dashboard_content">{children}</div>
-      <div className="dashboard_side_bar">
-        <Link href="/account/" passHref>
-          <ChakraLink>
-            <Tooltip label="Account" placement="left">
-              <div style={{ cursor: 'pointer' }}>
-                <AccountIcon w={30} h={30} />
-              </div>
-            </Tooltip>
-          </ChakraLink>
-        </Link>
-        <Tooltip label="Log out" placement="left">
-          <span style={{ cursor: 'pointer' }} onClick={() => logout()}>
-            <LogoutIcon w={30} h={30} />
-          </span>
-        </Tooltip>
+      <div className={`${dashStyles.dashboard_content}`}>
+        <div className={dashStyles.dashboard_content_wrapper}>
+          {children}
+        </div>
       </div>
-    </div>
+    </div >
   );
 });
 
 function MenuElem({ item, selected }) {
   return (
     <Link href={item.path}>
-      <div className={`menu_elem ${selected ? 'selected' : ''}`}>
+      <div className={`${sidenavStyles.menu_elem} ${selected ? sidenavStyles.selected : ''}`}>
         <div>{item.icon({})}</div>
         <div>{item.title}</div>
       </div>
@@ -158,7 +144,9 @@ function NotLoggedin() {
         justifyContent: 'center',
       }}
     >
-      not logged in, redirecting...
+      <span>
+        Not logged in, redirecting...
+      </span>
     </div>
   );
 }

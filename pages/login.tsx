@@ -4,6 +4,8 @@ import { useState, useContext, useEffect, useCallback } from 'react';
 import { useMsal } from '@azure/msal-react';
 import { loginRequest } from '../utils/auth-config';
 
+import loginStyles from '../styles/login.module.scss'
+
 export default function Login() {
   const router = useRouter();
 
@@ -19,7 +21,9 @@ export default function Login() {
   }, [inProgress, accounts, accounts?.length]);
 
   const loginHandler = () => {
-    instance.loginRedirect(loginRequest).catch((error) => {
+    instance.loginRedirect(loginRequest).then((res) => {
+      console.log(res);
+    }).catch((error) => {
       console.log(error);
     });
   }
@@ -31,9 +35,9 @@ export default function Login() {
       return <div className="login_text">Login is currently in progress!</div>;
     } else if (inProgress === 'none' && accounts.length == 0) {
       return (
-        <div className="login_form">
-          <button className="next_button" onClick={loginHandler}>
-            Log in / Sign up ➔
+        <div className={loginStyles.login_form}>
+          <button className="button button__primary" onClick={loginHandler}>
+            Log in / Sign up
           </button>
         </div>
       );
@@ -41,7 +45,7 @@ export default function Login() {
   };
 
   return (
-    <div className="login_container">
+    <div className={loginStyles.login_container}>
       <SpeechmaticsLogo />
 
       <LoginSub />

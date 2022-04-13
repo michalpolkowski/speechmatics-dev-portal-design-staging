@@ -3,6 +3,7 @@ import { useCallback, useContext, useState } from 'react';
 import accountContext from '../utils/account-store-context';
 import { accountsFlow, call } from '../utils/call-api';
 
+
 export default ({ tokenPayload }) => {
   const [response, setResponse] = useState();
 
@@ -28,7 +29,7 @@ export default ({ tokenPayload }) => {
   const callb3 = useCallback(() => {
     console.log('calling GET /accounts to check the accounts');
     if (tokenPayload?.idToken) {
-      accountsFlow(tokenPayload.idToken, (v) => {});
+      accountsFlow(tokenPayload.idToken, (v) => { });
     }
   }, [tokenPayload?.idToken]);
 

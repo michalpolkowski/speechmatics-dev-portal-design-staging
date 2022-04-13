@@ -1,0 +1,48 @@
+.login_container {
+    @apply h-full flex flex-col justify-center items-center py-4;
+}
+
+.input {
+    background: #FFFFFF;
+    border: 1px solid #cacad0;
+    box-sizing: border-box;
+    border-radius: 15px;
+    height: 3em;
+    width: 18em;
+    padding: 0 1em;
+    font-size: 1em;
+}
+
+.login_text {
+    width: 30em;
+    margin-top: 5em;
+    color: #3E4D5B;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.input:focus {
+    outline: none;
+    border: 2px solid red;
+}
+
+.login_form {
+    @apply flex flex-col items-center my-4;
+}
+
+.login_form>*:not(:first-child) {
+    margin-top: 1em;
+}
+
+.next_button {
+    @apply bg-speech-navy transition duration-200 shadow text-white uppercase text-xl cursor-pointer rounded py-4 px-5;
+}
+
+.next_button:hover {
+    @apply bg-opacity-90;
+}
+
+.next_button:active {
+    background: var(--main-blue);
+
+}
