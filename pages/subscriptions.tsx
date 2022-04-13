@@ -71,6 +71,7 @@ export default observer(function Subscriptions({ }) {
                 </div>
 
               </div>
+              </div>
 
               <div className='grid payment_card_grid'>
                 <div className=''>
@@ -132,8 +133,6 @@ export default observer(function Subscriptions({ }) {
 
 
     </Dashboard>
-
-
   );
 
 });
