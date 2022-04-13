@@ -72,6 +72,14 @@ export default observer(function Subscriptions({ }) {
 
               </div>
 
+              <div className='grid payment_card_grid'>
+                <div className=''>
+                  <h2>Payment card active </h2>
+                  <p>Visa ending 1234 expiring on 05/23</p>
+                  <a className='button button__primary button__extended my-4'>Update Card</a>
+                  <p>To delete your card, please <a href='#'>click here</a></p>
+                </div>
+
 
 
               </div>

@@ -55,10 +55,9 @@ export default function MyApp({ Component, pageProps }) {
                   width={64}
                   height={16}
                 />
-                <div className='hidden md:flex items-center'>
+                <div className='speechmatics_logo__wording'>
                   <Image
                     src="/assets/speech-logo-wording.svg"
-                    className='speechmatics_logo__wording'
                     alt="Speechmatics"
                     width={135}
                     height={20}
