@@ -25,6 +25,7 @@ import {
 import { observer } from 'mobx-react-lite';
 import { useCallback, useEffect, useState, useMemo, useRef, useContext } from 'react';
 
+
 import Dashboard from '../components/dashboard';
 import DashboardTabs from '../components/tabs/dashboard-tabs'
 import CodeSnippet from '../components/code-snippet'
@@ -59,7 +60,9 @@ export default function GetAccessToken({ }) {
 
         <GenerateTokenCompo />
 
-        <PreviousTokens />
+        <PreviousTokens 
+
+/>
       </div>
     </Dashboard>
   );
@@ -80,6 +83,10 @@ const GenerateTokenCompo = observer(() => {
 
   const nameInputRef = useRef<HTMLInputElement>(null);
   const generatedApikeyinputRef = useRef<HTMLInputElement>(null);
+
+  const [ testToken, setTestToken ] = useState(null);
+
+  
 
   const requestToken = useCallback(() => {
     if (nameInputRef?.current?.value == '') {
@@ -104,6 +111,15 @@ const GenerateTokenCompo = observer(() => {
   const generatedApikeyonClick = useCallback(() => {
     generatedApikeyinputRef.current.select();
   }, []);
+
+  /**
+   * Set test token for code snippets as the first available API key in the list
+   */
+  useEffect(() => {
+    if( apiKeys && apiKeys?.length > 0 ){
+      setTestToken(apiKeys[0].apikey_id);
+    }
+  }, [apiKeys])
 
   return (
     <section>
@@ -159,31 +175,17 @@ const GenerateTokenCompo = observer(() => {
 
         {genTokenStage == 'init' && (
           <HStack>
-            {apiKeys?.length >= 5 && (
-              <Text>You already have 5 tokens, remove one before requesting new.</Text>
-            )}
-            <Button
-              className="default_button"
-              disabled={apiKeys?.length >= 5 || !apiKeys}
-              onClick={() => setGenTokenStage('inputName')}
-            >
-              Generate new token
-            </Button>
-          </HStack>
-        )}
-        {genTokenStage == 'inputName' && (
-          <HStack>
-            <input
-              type="text"
-              placeholder="your token's name here"
-              onChange={(ev) => setChosenTokenName(ev.target.value)}
-              style={{ border: noNameError ? '1px solid red' : '' }}
-              ref={nameInputRef}
-            ></input>
-            <Button className="default_button" onClick={() => requestToken()}>
-              Ok
-            </Button>
-          </HStack>
+           <input
+             type="text"
+             placeholder="your token's name here"
+             onChange={(ev) => setChosenTokenName(ev.target.value)}
+             style={{ border: noNameError ? '1px solid red' : '' }}
+             ref={nameInputRef}
+           ></input>
+           <Button className="default_button" onClick={() => requestToken()}>
+             Ok
+           </Button>
+         </HStack>
         )}
         {genTokenStage == 'waiting' && (
           <HStack>
@@ -250,6 +252,7 @@ const GenerateTokenCompo = observer(() => {
 
         {/* OS Instructions */}
         <div className={tokenStyles.curl_commands}>
+          
           <DashboardTabs>
             <TabList>
               <Tab>Windows</Tab>
@@ -259,17 +262,17 @@ const GenerateTokenCompo = observer(() => {
             <TabPanels>
               <TabPanel>
                 <CodeSnippet>
-                  Windows curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                  Windows curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization: Bearer {testToken}"
                 </CodeSnippet>
               </TabPanel>
               <TabPanel>
                 <CodeSnippet>
-                  Linux curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                  Linux curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization: Bearer {testToken}"
                 </CodeSnippet>
               </TabPanel>
               <TabPanel>
                 <CodeSnippet>
-                  Mac curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization:
+                  Mac curl -L -X POST https://asr.api.speechmatics.com/v2/jobs/ -H  “Authorization: Bearer {testToken}"
                 </CodeSnippet>
               </TabPanel>
             </TabPanels>
@@ -280,7 +283,7 @@ const GenerateTokenCompo = observer(() => {
   );
 });
 
-const PreviousTokens = observer(() => {
+const PreviousTokens = observer(({ setTestToken }) => {
   const [[apikeyIdToRemove, apikeyName], setApiKeyToRemove] = useState<[string, string]>(['', '']);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -304,6 +307,7 @@ const PreviousTokens = observer(() => {
 
   return (
     <section>
+      {/* Modal */}
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -333,6 +337,7 @@ const PreviousTokens = observer(() => {
           <p className='mb-8'>You have currently used <span className="font-bold">{apiKeys?.length} / 5</span> of your available API Tokens</p>
         }
 
+        {/* API Keys */}
         <div className='table_data mt-2'>
           <div className='header_row'>
             <div className="w-1/3">ID</div>
@@ -363,6 +368,7 @@ const PreviousTokens = observer(() => {
           </div>
           ))}
 
+          {/* API Keys - Skeleton Loader */}
           {(typeof apiKeys === 'undefined' || !apiKeys || apiKeys?.length === 0) &&
             <div className='data_row'>
               <div className='w-1/3'>

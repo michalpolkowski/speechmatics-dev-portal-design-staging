@@ -228,7 +228,7 @@ export default observer(function Usage() {
           </TabPanels>
         </DashboardTabs>
       </div>
-    </Dashboard >
+    </Dashboard>
   );
 });
 
