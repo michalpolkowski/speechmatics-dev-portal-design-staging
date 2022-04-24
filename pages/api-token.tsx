@@ -397,7 +397,7 @@ const PreviousTokens = observer(({ setTestToken }) => {
                   className='cursor-pointer'
                   width={20}
                   height={20}
-                  onClick={() => aboutToRemoveOne(el)}
+                  onClick={() => {}}
                 />
               </div>
             </div>
