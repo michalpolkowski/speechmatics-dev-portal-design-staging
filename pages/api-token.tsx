@@ -253,7 +253,7 @@ const PreviousTokens = observer(() => {
                 aria-label="remove"
                 style={{ padding: 10, backgroundColor: '' }}
                 icon={<IoTrashBinOutline />}
-                onClick={() => aboutToRemoveOne(el)}
+                onClick={() => {}}
               />
             </Tooltip>
           </HStack>
