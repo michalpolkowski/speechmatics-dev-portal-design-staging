@@ -263,7 +263,7 @@ const GenerateTokenCompo = observer(() => {
                     className='cursor-pointer'
                     width={20}
                     height={20}
-                    onClick={() => aboutToRemoveOne(el)}
+                    onClick={() => {}}
                   />
                 </span>
                 Windows</Tab>
@@ -275,7 +275,7 @@ const GenerateTokenCompo = observer(() => {
                     className='cursor-pointer'
                     width={20}
                     height={20}
-                    onClick={() => aboutToRemoveOne(el)}
+                    onClick={() => {}}
                   />
                 </span>
                 Linux
@@ -288,7 +288,7 @@ const GenerateTokenCompo = observer(() => {
                     className='cursor-pointer'
                     width={20}
                     height={20}
-                    onClick={() => aboutToRemoveOne(el)}
+                    onClick={() => {}}
                   />
                 </span>
                 Mac</Tab>
@@ -332,7 +332,6 @@ const PreviousTokens = observer(({ setTestToken }) => {
   };
 
   const onRemoveConfirm = () => {
-    console.log('aboutToRemoveOne', apikeyIdToRemove);
     callRemoveApiKey(idToken, apikeyIdToRemove).then((res) =>
       accountStore.fetchServerState(idToken)
     );
